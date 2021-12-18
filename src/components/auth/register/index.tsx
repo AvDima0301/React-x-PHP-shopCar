@@ -12,6 +12,7 @@ const RegisterPage: React.FC = () => {
     email: "",
     password: "",
     password_confirmation: "",
+    image: "",
   };
 
   const navigator = useNavigate();
@@ -106,6 +107,19 @@ const RegisterPage: React.FC = () => {
                   onChange={handleChange}
                 />
                 {(touched && errors.password_confirmation) && <span className="text-danger">{errors.password_confirmation}</span>}
+              </div>
+              <div className="mb-3">
+                <label htmlFor="name" className="form-label">
+                  Фото
+                </label>
+                <input
+                  type="text"
+                  className={classNames("form-control")}
+                  autoComplete="off"
+                  name="image"
+                  id="image"
+                  onChange={handleChange}
+                />
               </div>
               <button type="submit" className="btn btn-primary">
                 Submit

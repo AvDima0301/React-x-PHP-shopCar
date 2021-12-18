@@ -3,6 +3,7 @@ export interface IRegisterModel {
     email: string;
     password: string;
     password_confirmation: string;
+    image: string;
 }
 
 export interface IRegisterResult {

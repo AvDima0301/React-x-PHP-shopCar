@@ -4,7 +4,6 @@ import { ILoginModel, ILoginResult } from "./types";
 import { LoginSchema } from "./validation";
 //import classNames from "classnames";
 import axios from "axios";
-import { getUserToken } from "../user";
 import { InputGroup } from "../../common/inputGroup";
 
 const LoginPage: React.FC = () => {
@@ -23,8 +22,9 @@ const LoginPage: React.FC = () => {
         .post<ILoginResult>("http://local.laravel.spu911.com:80/api/auth/login", values);
       const { data } = res;
       console.log("token", data.access_token);
-      getUserToken(data.access_token);
-      navigator("/user-profile")
+      localStorage.Token = data.access_token;
+      navigator("/user-profile");
+      window.location.reload();
     }
     catch (ex) {
       console.log("Problem", ex);
